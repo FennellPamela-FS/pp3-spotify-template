@@ -1,6 +1,8 @@
 # Project Overview
 
-This project uses the [Spotify Web API](https://developer.spotify.com/documentation/web-api/) to perform a generalized global search for Artists, Albums, and Tracks. This project contains both a frontend and a backend in a microservice structure that keeps track of OAuth JSON web tokens. This project serves as a template for other projects inside of the Project Portfolio III course. **DO NOT COPY**.
+Description: To build a music search app using the [Spotify Web API](https://developer.spotify.com/documentation/web-api/). 
+Features: The features of this app will allow you to search and display the Artists, their Albums, and their tracks.
+Functionality: The app will consume data from the API to display content on the frontend.
 
 # Prerequisites
 
