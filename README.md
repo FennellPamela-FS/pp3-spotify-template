@@ -11,30 +11,40 @@
 <br>
 ![Class Name](https://img.shields.io/badge/Class-Project%20and%20Portfolio%20III-orange?logo=react)
 
-# Project Name: Spotify Web API
+# Project Overview: Spotify Web API
 
-# Objective
+## Description: To build a music search app using the [Spotify Web API](https://developer.spotify.com/documentation/web-api/). 
 
-Description: To build a music search app using the Spotify Web API. Features: The features of this app will allow you to search and display the Artists, their Albums, and their tracks. Functionality: The app will consume data from the API to display content on the frontend.
-# Project Specifications
+## Features: The features of this app will allow you to search and display the Artists, their Albums, and their tracks. 
+- Login Screen
+- Search Page
+- Result Thumbnail
 
-
-- UI/UX design of Spotify Features
+## Functionality: The app will consume data from the API to display content on the frontend.
 - Display Login screen if no Spotify Access Token is found 
 	- If found and hasn’t expired then take user to search page.
 - Search Page: Display a "no results" message in the design: 
 	- if no search is performed, or 
 	- if API call returned with no results.
 - Each result thumbnail must link out to a Spotify web player link. 
-- Frontend application is decoupled from backend 
-- Backend application handles Spotify Access Token. 
+
+### Additional Project Information:
+- UI/UX design of Spotify Features
+- **FrontEnd: Next.js** 
+	- Frontend application is decoupled from backend 
+- **Backend: Express.js**
+	- Backend application handles Spotify Access Token. 
 
 
-## Features:
-Login Screen
-Search Page
-Result Thumbnail
+# Prerequisites
+- Docker Engine 
+- NodeJS 
+- npm 
+- Monogo DB 
+- Chrome/Firefox/Safari/Edge 
 
+
+# Getting Started
 
 ## To RUN this Application
 ``npm run start``
@@ -48,3 +58,16 @@ Opens front end on [http://localhost:3000](http://localhost:3000) and then opens
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+
+
+# Links
+
+The links to the project are as follows: 
+
+- [http://localhost:3000](http://localhost:3000) - Link to the frontend (Next.js) application. This is the primary user interface of the Spotify application
+- [http://localhost:3001](http://localhost:3001) - Link to the backend (Express) API.
+- [http://localhost:3001/spotify/v1](http://localhost:3001/spotify/v1) - Link to the Spotify API middleware. 
+- [http://localhost:3001/spotify/v1/status](http://localhost:3001/spotify/v1/status) - Endpoint to check the status of our application's JWT. Returns true if a valid JWT exists. False otherwise.
+- [http://localhost:3001/spotify/v1/login](http://localhost:3001/spotify/v1/login) - Endpoint request a new JWT from Spotify using the authentication workflow
+- [http://localhost:3001/spotify/v1/search](http://localhost:3001/spotify/v1/search) - Endpoint for a general/global search to Spotify. Returns JSON of all results. 
