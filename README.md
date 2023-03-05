@@ -13,14 +13,17 @@
 
 # 📢 &nbsp; Project Overview: Spotify Web API
 
-## Description: To build a music search app using the [Spotify Web API](https://developer.spotify.com/documentation/web-api/). 
+## Description: 
+To build a music search app using the [Spotify Web API](https://developer.spotify.com/documentation/web-api/).
 
-## Features: The features of this app will allow you to search and display the Artists, their Albums, and their tracks. 
+## Features: 
+The features of this app will allow you to search and display the Artists, their Albums, and their tracks. 
 - Login Screen
 - Search Page
 - Result Thumbnail
 
-## Functionality: The app will consume data from the API to display content on the frontend.
+## Functionality: 
+The app will consume data from the API to display content on the frontend.
 - Display Login screen if no Spotify Access Token is found 
 	- If found and hasn’t expired then take user to search page.
 - Search Page: Display a "no results" message in the design: 
