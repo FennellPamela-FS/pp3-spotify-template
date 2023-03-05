@@ -13,7 +13,7 @@
 
 # 📢 &nbsp; Project Overview: Spotify Web API
 
-## Description:
+## Description: 
 To build a music search app using the [Spotify Web API](https://developer.spotify.com/documentation/web-api/).
 
 ## Features: 
