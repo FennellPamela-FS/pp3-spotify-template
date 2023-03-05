@@ -1,56 +1,50 @@
-# Project Overview
+# PROJECT AND PORTFOLIO III: WEB DEVELOPMENT
 
-Description: To build a music search app using the [Spotify Web API](https://developer.spotify.com/documentation/web-api/). 
-Features: The features of this app will allow you to search and display the Artists, their Albums, and their tracks.
-Functionality: The app will consume data from the API to display content on the frontend.
+### Pamela Fennell
 
-# Prerequisites
+🆔 &nbsp; 0001437638
 
-- Docker Engine >= latest (for Mac or other platform)
-- NodeJS >= v16.13.0
-- Yarn >= v1.22.19
-- npm >= v8.1.0
-- Brew >= v3.4.3 (if MacOS)
-- MySQL Server >= v8.0.28
-- Chrome/Firefox/Safari/Edge >= Latest 2 major versions
+📪 &nbsp; pyfennell@student.fullsail.edu
 
-## Other Considerations
 
-Ports `3000`, and `3001` must be open on host OS. Make sure no other applications are running on those ports by running the following command: 
+![Degree Program](https://img.shields.io/badge/Degree-Web%20Development-orange?logo=gnometerminal)
+<br>
+![Class Name](https://img.shields.io/badge/Class-Project%20and%20Portfolio%20III-orange?logo=react)
 
-	sudo lsof -nP -i4TCP:3000 | grep LISTEN && sudo lsof -nP -i4TCP:3001 | grep LISTEN
+# Project Name: Spotify Web API
 
-If any results shows are displayed then you must close the application running on either of those ports. 
+# Objective
 
-# Getting Started
+Description: To build a music search app using the Spotify Web API. Features: The features of this app will allow you to search and display the Artists, their Albums, and their tracks. Functionality: The app will consume data from the API to display content on the frontend.
+# Project Specifications
 
-In order to setup the project we will need to setup our `.env` file. You can do this by making a copy of our `.env.dist` and naming it to `.env` using the following command.
 
-	cp .env.dist .env && vim .env
+- UI/UX design of Spotify Features
+- Display Login screen if no Spotify Access Token is found 
+	- If found and hasn’t expired then take user to search page.
+- Search Page: Display a "no results" message in the design: 
+	- if no search is performed, or 
+	- if API call returned with no results.
+- Each result thumbnail must link out to a Spotify web player link. 
+- Frontend application is decoupled from backend 
+- Backend application handles Spotify Access Token. 
 
-Place all of your environment variables inside the vim window, then save. After you have done that you will need to install all of your `node_modules` using the following command. Make sure you have yarn installed globally as well. 
 
-	npm install -g yarn
-	yarn
+## Features:
+Login Screen
+Search Page
+Result Thumbnail
 
-After yarn has finished installing all of your `node_modules` you can now run the project. You will need to open two different bash sessions. One for the frontend app and one for the backend Express application. 
 
-**To Run Nuxt.js (frontend)**
+## To RUN this Application
+``npm run start``
+> This will concurrently run both the frontend at the backend
+<br>
 
-	cd nuxt
-	yarn dev
 
-**To Run Express (backend)**
+Runs the app in the development mode, concurrenlty for both the frontend and the backend.\
+Opens front end on [http://localhost:3000](http://localhost:3000) and then opens backend on [http://localhost:8000](http://localhost:5000)
 
-	yarn watch
 
-# Links
-
-The links to the project are as follows: 
-
-- [http://localhost:3000](http://localhost:3000) - Link to the frontend (Nuxt.js) application. This is the primary user interface of the Spotify application
-- [http://localhost:3001](http://localhost:3001) - Link to the backend (Express) API.
-- [http://localhost:3001/spotify/v1](http://localhost:3001/spotify/v1) - Link to the Spotify API middleware. 
-- [http://localhost:3001/spotify/v1/status](http://localhost:3001/spotify/v1/status) - Endpoint to check the status of our application's JWT. Returns true if a valid JWT exists. False otherwise.
-- [http://localhost:3001/spotify/v1/login](http://localhost:3001/spotify/v1/login) - Endpoint request a new JWT from Spotify using the authentication workflow
-- [http://localhost:3001/spotify/v1/search](http://localhost:3001/spotify/v1/search) - Endpoint for a general/global search to Spotify. Returns JSON of all results. 
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
