@@ -1,4 +1,4 @@
-# PROJECT AND PORTFOLIO III: WEB DEVELOPMENT
+# 💻 PROJECT AND PORTFOLIO III: WEB DEVELOPMENT
 
 ### Pamela Fennell
 
@@ -11,7 +11,7 @@
 <br>
 ![Class Name](https://img.shields.io/badge/Class-Project%20and%20Portfolio%20III-orange?logo=react)
 
-# Project Overview: Spotify Web API
+# 📢 &nbsp; Project Overview: Spotify Web API
 
 ## Description: To build a music search app using the [Spotify Web API](https://developer.spotify.com/documentation/web-api/). 
 
@@ -36,7 +36,7 @@
 	- Backend application handles Spotify Access Token. 
 
 
-# Prerequisites
+# 🌵 Prerequisites
 - Docker Engine 
 - NodeJS 
 - npm 
@@ -44,7 +44,7 @@
 - Chrome/Firefox/Safari/Edge 
 
 
-# Getting Started
+# 🔮 Getting Started
 
 ## To RUN this Application
 ``npm run start``
@@ -61,7 +61,7 @@ You may also see any lint errors in the console.
 
 
 
-# Links
+# 🏆 Links
 
 The links to the project are as follows: 
 
