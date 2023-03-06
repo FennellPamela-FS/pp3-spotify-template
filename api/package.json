@@ -4,6 +4,7 @@
   "description": "build a music app using the Spotify Web API",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon index.js",
     "test": "jest"
   },
   "author": "",
