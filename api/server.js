@@ -2,7 +2,7 @@
 const http = require('http');
 require('dotenv').config();
 const express = require('express');
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
 
@@ -17,10 +17,10 @@ const musicRouter = require('./routes/music');
 // const authRouter = require('./routes/auth');
 
 // db
-// const DATABASE_URL = process.env.DATABASE_URL;
+const DATABASE_URL = process.env.DATABASE_URL;
 
 // db connection
-mongoose.connect(DATABASE_URL, { useNewParser: true });
+mongoose.connect(DATABASE_URL, { useNewUrlParser: true });
 mongoose.set('strictQuery', false);
 const db = mongoose.connection;
 db.on('error', error => console.error(error));
