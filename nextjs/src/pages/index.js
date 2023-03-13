@@ -15,7 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div className={styles.description}>
+        <div className={[styles.description]}>
           <p>
             Get started by editing&nbsp;
             <code className={styles.code}>src/pages/index.js</code>
@@ -66,7 +66,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <h2 className={[inter.className]}>
+            <h2 className={[inter.className, `bg-sky-500 text-sky-600 font-semibold py-2`]}>
               Docs <span>-&gt;</span>
             </h2>
             <p className={inter.className}>
