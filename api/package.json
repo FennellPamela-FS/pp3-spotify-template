@@ -2,9 +2,9 @@
   "name": "pp3-spotify-template",
   "version": "1.0.0",
   "description": "build a music app using the Spotify Web API",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "nodemon server.js",
     "test": "jest"
   },
   "author": "",
