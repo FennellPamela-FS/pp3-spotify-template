@@ -24,20 +24,23 @@ mongoose.connect(DATABASE_URL, { useNewUrlParser: true });
 mongoose.set('strictQuery', false);
 const db = mongoose.connection;
 db.on('error', error => console.error(error));
-db.once('open', () => console.log('Databse connection established'));
+db.once('open', () => console.log('Database connection established'));
 
 app.use(express.json()); // expect json on all routes after this
 app.use('/api/v1/music', musicRouter);
 // app.use('/api/v1/auth', authRouter);
 
 // static nextjs build in nextjs dir
-app.use(express.static(path.join(__dirname, '../nextjs/build')));
+app.use(express.static(path.join(__dirname, '../nextjs/build/')));
 
 app.get('/', (req, res) => { res.send(`Music App Express Build ${port}!`) })
 
 // if route undefined by API then direct request to client-side route
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../nextjs/build/', 'index.html'));
+    // res.sendFile(path.join(__dirname, '../nextjs/_next/static/chunks/', 'index.html'));
+    // res.sendFile(path.join(__dirname, '../nextjs/src/pages/api', 'index.html'));
+    // res.sendFile(path.join(__dirname, '../nextjs/_next/server/pages/api', 'index.html'));
 });
 
 
