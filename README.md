@@ -39,7 +39,7 @@ The app will consume data from the API to display content on the frontend.
 	- Backend application handles Spotify Access Token. 
 
 
-# 🌵 Prerequisites
+# 📚 Prerequisites
 - Express 
 - NodeJS 
 - React
@@ -48,7 +48,7 @@ The app will consume data from the API to display content on the frontend.
 - Chrome/Firefox/Safari/Edge 
 
 
-# 🔮 Getting Started
+# 🏃 Getting Started
 
 ## To RUN this Application
 ``npm run start``
