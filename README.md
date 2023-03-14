@@ -53,11 +53,10 @@ The app will consume data from the API to display content on the frontend.
 ## In this project you can RUN: 
 ``npm run dev:next``
 > This will concurrently run both the frontend at the backend
-<br>
 
-	- Builds the frontend for production to the .next folder. Compiles the app with `next build` Then Starts the app in production mode.
+- Builds the frontend for production to the ``.next`` folder. Compiles the app with `next build` Then Starts the app in production mode.
 
-	- Runs the app in the development mode, concurrenlty for both the frontend and the backend.
+- Runs the app in the development mode, concurrenlty for both the frontend and the backend.
 
 Opens frontend on [http://localhost:3000](http://localhost:3000) and then opens backend on [http://localhost:8000](http://localhost:8000)
 
