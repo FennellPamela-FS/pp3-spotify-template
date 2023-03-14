@@ -50,28 +50,39 @@ The app will consume data from the API to display content on the frontend.
 
 # 🏃 Getting Started
 
-## To RUN this Application
-``npm run start``
+## In this project you can RUN: 
+``npm run dev:next``
 > This will concurrently run both the frontend at the backend
 <br>
 
+	- Builds the frontend for production to the .next folder. Compiles the app with `next build` Then Starts the app in production mode.
 
-Runs the app in the development mode, concurrenlty for both the frontend and the backend.\
-Opens front end on [http://localhost:3000](http://localhost:3000) and then opens backend on [http://localhost:8000](http://localhost:5000)
+	- Runs the app in the development mode, concurrenlty for both the frontend and the backend.
+
+Opens frontend on [http://localhost:3000](http://localhost:3000) and then opens backend on [http://localhost:8000](http://localhost:8000)
 
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+<br>
 
+``npm run next``
+> Runs the Frontend of the app in the development mode
+<br>
 
+``npm run api``
+> Runs the Backend of the app in the development mode
+<br>
+
+#
 
 # 🏆 Links
 
 The links to the project are as follows: 
 
 - [http://localhost:3000](http://localhost:3000) - Link to the frontend (Next.js) application. This is the primary user interface of the Spotify application
-- [http://localhost:3001](http://localhost:3001) - Link to the backend (Express) API.
-- [http://localhost:3001/spotify/v1](http://localhost:3001/spotify/v1) - Link to the Spotify API middleware. 
-- [http://localhost:3001/spotify/v1/status](http://localhost:3001/spotify/v1/status) - Endpoint to check the status of our application's JWT. Returns true if a valid JWT exists. False otherwise.
-- [http://localhost:3001/spotify/v1/login](http://localhost:3001/spotify/v1/login) - Endpoint request a new JWT from Spotify using the authentication workflow
-- [http://localhost:3001/spotify/v1/search](http://localhost:3001/spotify/v1/search) - Endpoint for a general/global search to Spotify. Returns JSON of all results. 
+- [http://localhost:8000](http://localhost:8000) - Link to the backend (Express) API.
+- [http://localhost:8000/spotify/v1](http://localhost:8000/spotify/v1) - Link to the Spotify API middleware. 
+- [http://localhost:8000/spotify/v1/status](http://localhost:8000/spotify/v1/status) - Endpoint to check the status of our application's JWT. Returns true if a valid JWT exists. False otherwise.
+- [http://localhost:8000/spotify/v1/login](http://localhost:8000/spotify/v1/login) - Endpoint request a new JWT from Spotify using the authentication workflow
+- [http://localhost:8000/spotify/v1/search](http://localhost:8000/spotify/v1/search) - Endpoint for a general/global search to Spotify. Returns JSON of all results. 
