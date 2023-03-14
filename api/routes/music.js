@@ -28,5 +28,31 @@ router.post('/:id', (req, res) => {
     })
 });
 
+// GET by ID
+router.get('/:id', (req, res) => {
+    const id = req.params.id;
+    res.status(200).json({
+        message: 'GET request by ID.',
+        id: id,
+    })
+});
+
+// PUT by ID
+router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    res.status(200).json({
+        message: 'PUT request by ID.',
+        id: id,
+    })
+});
+
+// DELETE by ID
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+    res.status(200).json({
+        message: 'DELETE request by ID.',
+        id: id,
+    })
+});
 
 module.exports = router;

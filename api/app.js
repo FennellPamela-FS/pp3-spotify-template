@@ -1,25 +1,26 @@
 const express = require('express');
+const app = express();
 require('dotenv').config();
 const path = require('path');
 const cors = require('cors');
-
-const app = express();
-app.use(cors());    // allow cross-origin requests for this server
-
 const port = process.env.PORT || 8000;
-
 const musicRouter = require('./routes/music');
 // const authRouter = require('./routes/auth');
 
+app.use(cors());    // allow cross-origin requests for this server
 app.use(express.json()); // expect json on all routes
-app.use('/api/v1/music', musicRouter);
-// app.use('/api/auth', authRouter);
 
 app.get('/', (req, res) => {
     res.send(`Music App Express Build ${port}!`)
     // res.status(200).json({ message: "Service is up and running!" });
 });
 
+// ROUTES
+app.use('/api/v1/music', musicRouter);
+// app.use('/api/auth', authRouter);
+
+
+// add middleware to handle errors and bad URL paths
 app.use((req, res, next) => {
     const error = new Error('Not Found');
     error.status = 404;
