@@ -1,0 +1,36 @@
+{
+  "name": "pp3-spotify-template",
+  "version": "1.0.0",
+  "private": true,
+  "proxy": "http://localhost:8000",
+  "engines": {
+    "node": "16.15.1"
+  },
+  "description": "### Pamela Fennell",
+  "main": "index.js",
+  "scripts": {
+    "install-nextjs": "npm install --prefix nextjs",
+    "install-api": "npm install --prefix api",
+    "build-nextjs": "npm run build --prefix nextjs",
+    "start-nextjs": "npm run start --prefix nextjs",
+    "heroku-postbuild": "concurrently \"npm:install-*\"; concurrently \"npm:build-*\"; ",
+    "start": "npm start --prefix api",
+    "dev:next": "concurrently --raw \"npm run api\" \"npm run next\"",
+    "next": "cd nextjs && npm run start",
+    "api": "cd api; nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FennellPamela-FS/pp3-spotify-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FennellPamela-FS/pp3-spotify-template/issues"
+  },
+  "homepage": "https://github.com/FennellPamela-FS/pp3-spotify-template#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

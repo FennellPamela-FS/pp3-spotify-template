@@ -40,8 +40,9 @@ The app will consume data from the API to display content on the frontend.
 
 
 # 🌵 Prerequisites
-- Docker Engine 
+- Express 
 - NodeJS 
+- React
 - npm 
 - Monogo DB 
 - Chrome/Firefox/Safari/Edge 
