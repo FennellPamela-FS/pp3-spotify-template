@@ -38,13 +38,13 @@ app.use((error, req, res, next) => {
 });
 
 // static nextjs build in nextjs dir
-app.use(express.static(path.join(__dirname, '../nextjs/build/')));
+app.use(express.static(path.join(__dirname, '../nextjs/.next/static/chunks/pages')));
 
 app.get('/', (req, res) => { res.send(`Music App Express Build ${port}!`) })
 
 // if route undefined by API then direct request to client-side route
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../nextjs/build/', 'index.html'));
+    res.sendFile(path.join(__dirname, '../nextjs/.next/static/chunks/pages', 'index.html'));
 });
 
 
