@@ -44,7 +44,6 @@ The app will consume data from the API to display content on the frontend.
 - NodeJS 	>= 16.15.1
 - React 	>= 18.2.0
 - npm 		>= 9.3.0
-- NextJs 	>= 13.2.4
 - Monogo DB >= 7.0.1
 - Chrome/Firefox/Safari/Edge 
 
