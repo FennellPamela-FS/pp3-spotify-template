@@ -104,8 +104,21 @@ a {
   text-decoration: none;
 }
 
+.sgreen {
+  background-color: #1D8954;
+  color: #fff;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
 }
+
+/* @media (prefers-color-scheme: light) {
+  html {
+    color-scheme: light;
+  }
+} */
+
+    /* Spotify Color Guidelines  */

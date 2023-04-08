@@ -1,31 +1,31 @@
+/**
+ * This is an example of a basic node.js script that performs
+ * the Authorization Code oAuth2 flow to authenticate against
+ * the Spotify Accounts.
+ *
+ * For more information, read
+ * https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
+ */
 
+const express = require('express'); // Express web server framework
+const request = require('request'); // "Request" library
+require('dotenv').config();
+const cors = require('cors');
 const querystring = require('querystring');
-const request = require('request');
-const axios = require('axios');
-// const cors = require('cors');
-// const cookieParser = require('cookie-parser');
-// const jwt = require('jwt-simple')
-// const User = require('../models/user')
-// const config = require('../config')
+const cookieParser = require('cookie-parser');
 
+// const port = process.env.PORT || 8888;
 const client_id = process.env.CLIENT_ID; // Your client id
 const client_secret = process.env.CLIENT_SECRET; // Your secret
 const redirect_uri = process.env.REDIRECT_URI; // Your redirect uri
 const BASE_URI = process.env.BASE_URI;
-const NEXTAUTH_URL = process.env.NEXTAUTH_URL;
-
-const account_service = process.env.SPOTIFY_ACCOUNT_SERVICE;
-
-// const tokenForUser = user => {
-//     const timestamp = new Date().getTime()
-//     return jwt.encode({
-//         sub: user.id,
-//         iat: timestamp,
-//     }, config.secret)
-// }
 
 
-// generate a random string of numbers and letters
+/**
+ * Generates a random string containing numbers and letters
+ * @param  {number} length The length of the string
+ * @return {string} The generated string
+ */
 let generateRandomString = function (length) {
     let text = '';
     let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -36,17 +36,23 @@ let generateRandomString = function (length) {
     return text;
 };
 
-const stateKey = 'spotify_auth_state';
+var stateKey = 'spotify_auth_state';
 
-const login = async (req, res) => {
-    const state = generateRandomString(16);
+const app = express();
+
+app.use(express.static(__dirname + '/public'))
+    .use(cors())
+    .use(cookieParser());
+
+app.get('/login', function (req, res) {
+
+    let state = generateRandomString(16);
     res.cookie(stateKey, state);
 
     // /authorize endpoint
     // your application requests authorization
-    const scope = 'user-read-private user-read-email user-library-read user-top-read playlist-modify-public playlist-read-private';
-    // redirect to the authorization endpoint
-    res.redirect(`${account_service}?` +
+    const scope = 'user-read-private user-read-email';
+    res.redirect('https://accounts.spotify.com/authorize?' +
         querystring.stringify({
             response_type: 'code',
             client_id: client_id,
@@ -54,28 +60,10 @@ const login = async (req, res) => {
             redirect_uri: redirect_uri,
             state: state
         }));
-}; // end of login endpoint
+}); // end of login endpoint
 
-const auth = async (req, res) => {
-    if (req.access_token) {
-        // res.redirect(`${NEXTAUTH_URL}?access_token=${req.access_token}&refresh_token=${req.refresh_token}`);
-        res.redirect(`${NEXTAUTH_URL}?access_token=${req.access_token}&refresh_token=${req.refresh_token}`);
-    } else {
-        res.redirect(`${NEXTAUTH_URL}?error=access_denied`);
-    }
-}
+app.get('/callback', function (req, res) {
 
-const index = (req, res) => {
-    res.cookie(stateKey);
-    res.redirect(`${NEXTAUTH_URL}`);
-}; // end of logout endpoint
-
-const logout = (req, res) => {
-    res.clearCookie(stateKey);
-    res.redirect(`${NEXTAUTH_URL}`);
-}; // end of logout endpoint
-
-const callback = (req, res) => {
     // your application requests refresh and access tokens
     // after checking the state parameter
 
@@ -122,16 +110,11 @@ const callback = (req, res) => {
                 });
 
                 // we can also pass the token to the browser to make requests from there
-                // res.redirect('/#' +
-                res.redirect(`${NEXTAUTH_URL}/api/auth/signin?` +
+                res.redirect('/#' +
                     querystring.stringify({
                         access_token: access_token,
                         refresh_token: refresh_token
                     }));
-                // res.redirect('/api/v1/auth/index?');
-                // res.redirect(`${NEXTAUTH_URL}/api/auth/callback?access_token=${access_token}&refresh_token=${refresh_token}`);
-                // res.redirect(`${NEXTAUTH_URL}/api/auth/callback/spotify`);
-                // res.redirect(`${NEXTAUTH_URL}/api/auth/callback/spotify`);
             } else {
                 res.redirect('/#' +
                     querystring.stringify({
@@ -140,9 +123,9 @@ const callback = (req, res) => {
             }
         });
     }
-};   // end of callback endpoint
+});
 
-const refreshToken = (req, res) => {
+app.get('/refresh_token', function (req, res) {
 
     // requesting access token from refresh token
     const refresh_token = req.query.refresh_token;
@@ -164,13 +147,9 @@ const refreshToken = (req, res) => {
             });
         }
     });
-}
+});
 
-module.exports = {
-    auth,
-    index,
-    login,
-    logout,
-    callback,
-    refreshToken,
-};
+module.exports = app;
+
+// console.log(`Listening on ${port}`);
+// app.listen(port);

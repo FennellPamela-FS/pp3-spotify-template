@@ -1,23 +1,28 @@
 const express = require('express');
-const app = express();
 require('dotenv').config();
+const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
-const port = process.env.PORT || 8000;
-const musicRouter = require('./routes/music');
+const cookieParser = require('cookie-parser');
+
+// import routes
+// const musicRouter = require('./routes/musicRouter');
+// const authRouter = require('./routes/authRouter');
 // const authRouter = require('./routes/auth');
 
-app.use(cors());    // allow cross-origin requests for this server
-app.use(express.json()); // expect json on all routes
+const app = express();  // create express app
 
-app.get('/', (req, res) => {
-    res.send(`Music App Express Build ${port}!`)
-    // res.status(200).json({ message: "Service is up and running!" });
-});
+// Middleware: JSON, CORS, BodyParser 
+app.use(cors());    // allow cross-origin requests for this server
+app.use(cookieParser());
+app.use(express.json()); // expect json on all routes
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
 
 // ROUTES
-app.use('/api/v1/music', musicRouter);
-// app.use('/api/auth', authRouter);
+// app.use('/api/v1/music', musicRouter);
+// app.use('/api/v1/auth', authRouter);
 
 
 // add middleware to handle errors and bad URL paths
@@ -40,7 +45,11 @@ app.use((error, req, res, next) => {
 // static nextjs build in nextjs dir
 app.use(express.static(path.join(__dirname, '../nextjs/.next/static/chunks/pages')));
 
-app.get('/', (req, res) => { res.send(`Music App Express Build ${port}!`) })
+
+app.get('/', (req, res) => {
+    res.send(`Music App Express Build ${port}!`)
+    // res.status(200).json({ message: "Service is up and running!" });
+});
 
 // if route undefined by API then direct request to client-side route
 app.get('/', (req, res) => {
@@ -48,5 +57,8 @@ app.get('/', (req, res) => {
 });
 
 
-
 module.exports = app;
+
+
+
+

@@ -6,6 +6,7 @@ const musicSchema = new mongoose.Schema({
     title: String,
     artist: String,
     album: String,
+    track: String,
     url: String,
     date: {
         type: Date,
